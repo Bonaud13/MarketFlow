@@ -1,7 +1,7 @@
 public class Estoque {
-    private Produto[] produtos; // uso de ARRAY, como exigido
+    private Produto[] produtos; 
     private int capacidade;
-    private int total; // quantos produtos já foram cadastrados
+    private int total; 
     private Loja loja;
 
     public Estoque(int capacidade, Loja loja) {
@@ -11,7 +11,7 @@ public class Estoque {
         this.total = 0;
     }
 
-    // Cadastra um novo produto no estoque
+    
     public void adicionarProduto(Produto produto) {
         if (total >= capacidade) {
             System.out.println("Estoque cheio! Não é possível cadastrar mais produtos.");
@@ -21,7 +21,7 @@ public class Estoque {
         total++;
     }
 
-    // Procura um produto pelo código. Se não achar, lança exceção.
+    
     public Produto buscarPorCodigo(int codigo) {
         for (int i = 0; i < total; i++) {
             if (produtos[i].getCodigo() == codigo) {
@@ -32,13 +32,13 @@ public class Estoque {
             "Produto com código " + codigo + " não encontrado no estoque.");
     }
 
-    // Dá baixa na quantidade de um produto (usado na venda)
+    
     public void atualizarQtd(int codigo, int quantidade) {
         Produto produto = buscarPorCodigo(codigo);
         produto.removerProdutos(quantidade);
     }
 
-    // Verifica e avisa quais produtos estão abaixo do mínimo
+    
     public void verificarMinimo() {
         boolean algumAbaixo = false;
         for (int i = 0; i < total; i++) {
@@ -54,7 +54,7 @@ public class Estoque {
         }
     }
 
-    // Relatório de giro/estoque da loja
+   
     public void gerarRelatorio() {
         System.out.println("\n===== RELATÓRIO DE ESTOQUE - " + loja.getNome() + " =====");
         double valorTotal = 0;
