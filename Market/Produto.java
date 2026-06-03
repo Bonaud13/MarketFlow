@@ -57,7 +57,7 @@ public class Produto {
         this.quantidade += quantidade;
     }
 
-    // Dá baixa no estoque. Se não houver quantidade suficiente, lança exceção.
+    
     public void removerProdutos(int quantidade) {
         if (quantidade > this.quantidade) {
             throw new EstoqueInsuficienteException(
