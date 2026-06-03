@@ -7,7 +7,7 @@ public class ItemVenda {
     public ItemVenda(Produto produto, int quantidade) {
         this.produto = produto;
         this.quantidade = quantidade;
-        this.precoUnitario = produto.getPreco(); // congela o preço no momento da venda
+        this.precoUnitario = produto.getPreco(); 
         this.subtotal = calcularSubTotal();
     }
 
