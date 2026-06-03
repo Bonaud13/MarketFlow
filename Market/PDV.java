@@ -2,20 +2,20 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class PDV {
-    private Loja[] lojas; // uso de ARRAY
+    private Loja[] lojas; 
     private Loja lojaAtual;
     private Scanner scanner;
 
     public PDV() {
         this.scanner = new Scanner(System.in);
-        // Cria uma loja e a define como loja atual
+        
         this.lojas = new Loja[5];
         lojas[0] = new Loja("MarketFlow Centro", "Av. Principal, 100", 50, 100);
         this.lojaAtual = lojas[0];
         carregarProdutosIniciais();
     }
 
-    // Pré-carrega alguns produtos no estoque para o sistema ter o que vender
+    
     private void carregarProdutosIniciais() {
         Estoque estoque = lojaAtual.getEstoque();
         estoque.adicionarProduto(new Produto(1, "Arroz 5kg", 25.90, 20, 5));
@@ -64,7 +64,7 @@ public class PDV {
     private void realizarVenda() {
         Estoque estoque = lojaAtual.getEstoque();
 
-        // 1) Identifica o cliente
+        
         System.out.println("\nCliente possui cadastro? (1 - Sim / 0 - Não):");
         int temCadastro = lerInteiro();
 
@@ -79,7 +79,7 @@ public class PDV {
             System.out.println("Prosseguindo sem cadastro (sem desconto).");
         }
 
-        // 2) Monta a venda
+       
         Venda venda = new Venda(cliente, 50);
         String continuar = "s";
 
@@ -96,10 +96,10 @@ public class PDV {
                 System.out.println("Digite a quantidade:");
                 int quantidade = lerInteiro();
 
-                // 3) Dá baixa no estoque (pode lançar EstoqueInsuficienteException)
+                
                 estoque.atualizarQtd(codigo, quantidade);
 
-                // 4) Adiciona o item na venda
+                
                 ItemVenda item = new ItemVenda(produto, quantidade);
                 venda.adicionarItem(item);
                 System.out.println("Item adicionado!");
@@ -119,11 +119,11 @@ public class PDV {
             return;
         }
 
-        // 5) Emite o cupom e registra a venda
+        
         venda.emitirCupom();
         lojaAtual.registrarVenda(venda);
 
-        // 6) Verifica reposição após a venda
+        
         System.out.println("\nVerificando estoque após a venda...");
         estoque.verificarMinimo();
     }
@@ -145,7 +145,7 @@ public class PDV {
         }
     }
 
-    // Lê um inteiro com segurança e consome a quebra de linha
+   
     private int lerInteiro() {
         while (!scanner.hasNextInt()) {
             System.out.println("Digite um número válido:");
