@@ -1,7 +1,7 @@
 import java.time.LocalDate;
 
 public class Venda {
-    private ItemVenda[] itens; // uso de ARRAY
+    private ItemVenda[] itens; 
     private int totalItens;
     private double total;
     private Cliente cliente;
@@ -23,7 +23,7 @@ public class Venda {
         totalItens++;
     }
 
-    // Soma os subtotais (valor bruto, sem desconto)
+    
     public double calcularTotal() {
         double soma = 0;
         for (int i = 0; i < totalItens; i++) {
@@ -33,7 +33,7 @@ public class Venda {
         return soma;
     }
 
-    // Emite o cupom fiscal aplicando o desconto do cliente
+    
     public void emitirCupom() {
         double bruto = calcularTotal();
         double desconto = bruto * cliente.getDesconto();

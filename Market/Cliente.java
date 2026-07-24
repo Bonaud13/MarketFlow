@@ -8,7 +8,6 @@ public class Cliente {
         this.cpf = cpf;
         this.nome = nome;
         this.fidelidade = fidelidade;
-        // Cliente fidelidade recebe 15% de desconto; avulso, 0%.
         this.desconto = fidelidade ? 0.15 : 0.0;
     }
 

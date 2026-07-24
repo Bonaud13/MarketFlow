@@ -2,7 +2,7 @@ public class Loja {
     private String nome;
     private String endereco;
     private Estoque estoque;
-    private Venda[] vendas; // uso de ARRAY
+    private Venda[] vendas; 
     private int totalVendas;
 
     public Loja(String nome, String endereco, int capacidadeEstoque, int capacidadeVendas) {
@@ -13,7 +13,7 @@ public class Loja {
         this.totalVendas = 0;
     }
 
-    // Registra uma venda já finalizada no histórico da loja
+    
     public void registrarVenda(Venda venda) {
         if (totalVendas >= vendas.length) {
             System.out.println("Histórico de vendas cheio.");
